@@ -58,13 +58,13 @@ angular.module('ng-sortable', [])
 						items = source.items();
 
 					if (el !== evt.from) {
-						var prevSource = getSource(evt.from),
-							prevItems = prevSource.items();
+                        var prevSource = getSource(evt.from),
+                            prevItems = prevSource.items();
 
-						oldIndex = prevItems.indexOf(prevSource.item(evt.item));
-						removed = prevItems.splice(oldIndex, 1)[0];
+                        oldIndex = prevItems.indexOf(prevSource.item(evt.item));
+                        removed = prevItems.splice(oldIndex, 1)[0];
 
-						items.splice(newIndex, 0, removed);
+						if (removed) { items.splice(newIndex, 0, removed); }
 
 						evt.from.appendChild(evt.item); // revert element
 					} else {

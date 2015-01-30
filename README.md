@@ -15,7 +15,7 @@ Demo: http://rubaxa.github.io/Sortable/
  * Supports [Meteor](meteor/README.md) and [AngularJS](#ng)
  * Supports any CSS library, e.g. [Bootstrap](#bs)
  * Simple API
- * No jQuery
+ * No jQuery (but there is [support](#jq))
 
 
 ### Usage
@@ -427,6 +427,34 @@ Link to the active instance.
 
 ---
 
+
+<a name="jq"></a>
+### jQuery compatibility
+To assemble plugin for jQuery, perform the following steps:
+
+```bash
+  cd Sortable
+  npm install
+  grunt jquery
+```
+
+Now you can use `jquery.fn.sortable.js`:<br/>
+(or `jquery.fn.sortable.min.js` if you run `grunt jquery:min`)
+
+```js
+  $("#list").sortable({ /* options */ }); // init
+  
+  $("#list").sortable("widget"); // get Sortable instance
+  
+  $("#list").sortable("destroy"); // destroy Sortable instance
+  
+  $("#list").sortable("{method-name}"); // call an instance method
+  
+  $("#list").sortable("{method-name}", "foo", "bar"); // call an instance method with parameters
+```
+
+
+---
 
 
 ## MIT LICENSE
